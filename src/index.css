@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { background-color: #0F0F13; color: #e0e0e0; font-family: 'Inter', sans-serif; }
+.gradient-text { background: linear-gradient(135deg, #FF6B4A, #E040A0, #7B61FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.gradient-text-warm { background: linear-gradient(135deg, #FC4C02, #FF6B4A, #E040A0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.glass-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); }
+.glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; pointer-events: none; }
