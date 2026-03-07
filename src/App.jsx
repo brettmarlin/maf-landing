@@ -11,6 +11,9 @@ export function App() {
         <div className="glow-orb w-[400px] h-[400px] bg-orange-500 top-1/3 left-1/3" />
         <div className="relative z-10 max-w-5xl mx-auto">
           <div className="text-center mb-12">
+            <div className="flex justify-center mb-12">
+              <img src="/maf-machine-logo.svg" alt="MAF Machine" className="h-10" />
+            </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight gradient-text mb-6">
               Slow is smooth.<br />Smooth is fast.
             </h1>
@@ -215,6 +218,7 @@ export function App() {
           <div className="font-bold text-lg">MAF Machine</div>
           <p className="text-gray-500 text-sm italic">Slow is smooth. Smooth is fast.</p>
           <p className="text-gray-600 text-xs">Powered by Strava</p>
+          <p className="text-gray-600 text-xs">Built by <a href="https://marliin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Marliin</a></p>
         </div>
       </footer>
     </div>

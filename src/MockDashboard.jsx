@@ -20,7 +20,7 @@ export function MockDashboard() {
   const chartW = 280;
   const points = data.map((d, i) => {
     const x = (i / (data.length - 1)) * chartW;
-    const y = ((d.pace - minPace) / range) * chartH;
+    const y = ((maxPace - d.pace) / range) * chartH;
     return `${x},${y}`;
   });
   const linePath = points.join(' ');
@@ -31,7 +31,7 @@ export function MockDashboard() {
       <div className="flex items-center justify-between mb-4">
         <div>
           <div className="text-xs text-gray-500 uppercase tracking-wider">MAF Pace Trend</div>
-          <div className="text-2xl font-bold text-white">11:51 <span className="text-green-400 text-sm font-medium">↓ 1:29</span></div>
+          <div className="text-2xl font-bold text-white">9:51 <span className="text-green-400 text-sm font-medium">↓ 1:29</span></div>
         </div>
         <div className="text-right">
           <div className="text-xs text-gray-500">Avg HR</div>
