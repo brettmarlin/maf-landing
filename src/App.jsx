@@ -87,7 +87,7 @@ export function App() {
       <PhoneShowcase />
 
       {/* Gamification / Badges Section */}
-      <section className="relative px-6 py-24 md:py-32">
+      <section className="relative px-6 py-24 md:py-32 overflow-x-clip">
         <div className="glow-orb w-[500px] h-[500px] bg-orange-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ opacity: 0.15 }} />
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">

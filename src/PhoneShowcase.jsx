@@ -8,9 +8,8 @@ const phones = [
 
 export function PhoneShowcase() {
   const sectionRef = useRef(null);
+  const phonesContainerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [tiltX, setTiltX] = useState(0);
-  const [glossOffset, setGlossOffset] = useState(0);
 
   // Scroll-triggered entrance
   useEffect(() => {
@@ -26,19 +25,33 @@ export function PhoneShowcase() {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll-based tilt + gloss shift
+  // Scroll-based tilt + gloss shift — direct DOM writes, rAF-throttled
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const el = sectionRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const viewH = window.innerHeight;
-      // 0 when top of section at bottom of viewport, 1 when bottom at top
-      const progress = Math.max(0, Math.min(1, (viewH - rect.top) / (viewH + rect.height)));
-      // Map to -2.5 … +2.5 deg
-      setTiltX((progress - 0.5) * 5);
-      // Gloss background-position shift 0-100%
-      setGlossOffset(progress * 600);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const section = sectionRef.current;
+        const container = phonesContainerRef.current;
+        if (!section || !container) { ticking = false; return; }
+
+        const rect = section.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        const progress = Math.max(0, Math.min(1, (viewH - rect.top) / (viewH + rect.height)));
+        const tiltX = (progress - 0.5) * 5;
+        const glossPos = progress * 600;
+
+        const children = container.children;
+        for (let i = 0; i < children.length; i++) {
+          const phone = phones[i];
+          const el = children[i];
+          el.style.transform = `rotate(${phone.rotate}) ${phone.scale ? 'scale(1.35)' : ''} rotateX(${tiltX}deg)`;
+          const gloss = el.querySelector('.phone-gloss');
+          if (gloss) gloss.style.backgroundPosition = `${glossPos}% 0%`;
+        }
+        ticking = false;
+      });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -59,24 +72,26 @@ export function PhoneShowcase() {
         </div>
 
         <div
+          ref={phonesContainerRef}
           className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8"
           style={{
             perspective: '1000px',
           }}
         >
-          {phones.map((phone, i) => (
+          {phones.map((phone) => (
             <div
               key={phone.src}
               className="relative"
               style={{
                 transform: isVisible
-                  ? `rotate(${phone.rotate}) ${phone.scale ? 'scale(1.35)' : ''} rotateX(${tiltX}deg)`
+                  ? `rotate(${phone.rotate}) ${phone.scale ? 'scale(1.35)' : ''}`
                   : `${phone.from} scale(0.95)`,
                 opacity: isVisible ? 1 : 0,
                 transition: `transform 0.8s ease-out ${phone.delay}, opacity 0.8s ease-out ${phone.delay}`,
                 zIndex: phone.scale ? 10 : 1,
                 marginTop: phone.scale ? '-12px' : '0',
                 transformStyle: 'preserve-3d',
+                willChange: 'transform',
               }}
             >
               <div className="bg-[#1C1C1E] p-2 rounded-[40px] shadow-2xl shadow-black/50 overflow-hidden">
@@ -86,10 +101,7 @@ export function PhoneShowcase() {
                   className="w-[240px] md:w-[260px] h-auto rounded-[32px] object-cover"
                 />
                 {/* Glossy overlay */}
-                <div
-                  className="phone-gloss"
-                  style={{ backgroundPosition: `${glossOffset}% 0%` }}
-                />
+                <div className="phone-gloss" />
               </div>
             </div>
           ))}
