@@ -10,11 +10,14 @@ body { background-color: #0F0F13; color: #e0e0e0; font-family: 'Inter', sans-ser
 .glass-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); }
 .glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; pointer-events: none; }
 
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
 .phone-gloss {
   position: absolute;
   inset: 8px;
   border-radius: 32px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 60%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%, rgba(255,255,255,0.04) 100%);
   background-size: 200% 200%;
   pointer-events: none;
 }

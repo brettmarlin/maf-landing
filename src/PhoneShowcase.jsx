@@ -9,7 +9,9 @@ const phones = [
 export function PhoneShowcase() {
   const sectionRef = useRef(null);
   const phonesContainerRef = useRef(null);
+  const carouselRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // Scroll-triggered entrance
   useEffect(() => {
@@ -25,7 +27,7 @@ export function PhoneShowcase() {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll-based tilt + gloss shift — direct DOM writes, rAF-throttled
+  // Scroll-based tilt + gloss shift — direct DOM writes, rAF-throttled (desktop only)
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -58,6 +60,20 @@ export function PhoneShowcase() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Track active dot from carousel scroll position
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+    const handleCarouselScroll = () => {
+      const scrollLeft = carousel.scrollLeft;
+      const width = carousel.offsetWidth;
+      const index = Math.round(scrollLeft / width);
+      setActiveIndex(Math.min(index, phones.length - 1));
+    };
+    carousel.addEventListener('scroll', handleCarouselScroll, { passive: true });
+    return () => carousel.removeEventListener('scroll', handleCarouselScroll);
+  }, []);
+
   return (
     <section ref={sectionRef} className="relative px-6 py-24 md:py-32 overflow-hidden">
       <div className="glow-orb w-[500px] h-[500px] bg-purple-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
@@ -71,12 +87,50 @@ export function PhoneShowcase() {
           </p>
         </div>
 
+        {/* Mobile carousel */}
+        <div className="md:hidden">
+          <div
+            ref={carouselRef}
+            className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide -mx-6"
+          >
+            {phones.map((phone, i) => (
+              <div
+                key={phone.src}
+                className="snap-center shrink-0 w-[85vw] max-w-[320px] px-3"
+                style={{ marginLeft: i === 0 ? 'auto' : undefined, marginRight: i === phones.length - 1 ? 'auto' : undefined }}
+              >
+                <div className="relative bg-[#1C1C1E] p-2 rounded-[40px] shadow-2xl shadow-black/50 overflow-hidden">
+                  <img
+                    src={phone.src}
+                    alt={phone.alt}
+                    className="w-full max-h-[600px] h-[70vh] rounded-[32px] object-cover object-top"
+                  />
+                  <div className="absolute inset-2 rounded-[32px] pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%, rgba(255,255,255,0.04) 100%)' }} />
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {phones.map((_, i) => (
+              <button
+                key={i}
+                className="w-2 h-2 rounded-full transition-colors"
+                style={{ backgroundColor: i === activeIndex ? '#FC4C02' : 'rgba(255,255,255,0.2)' }}
+                onClick={() => {
+                  const carousel = carouselRef.current;
+                  if (carousel) carousel.scrollTo({ left: i * carousel.offsetWidth, behavior: 'smooth' });
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop fan layout */}
         <div
           ref={phonesContainerRef}
-          className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8"
-          style={{
-            perspective: '1000px',
-          }}
+          className="hidden md:flex items-center justify-center gap-8"
+          style={{ perspective: '1000px' }}
         >
           {phones.map((phone) => (
             <div
@@ -94,13 +148,12 @@ export function PhoneShowcase() {
                 willChange: 'transform',
               }}
             >
-              <div className="bg-[#1C1C1E] p-2 rounded-[40px] shadow-2xl shadow-black/50 overflow-hidden">
+              <div className="relative bg-[#1C1C1E] p-2 rounded-[40px] shadow-2xl shadow-black/50 overflow-hidden">
                 <img
                   src={phone.src}
                   alt={phone.alt}
-                  className="w-[240px] md:w-[260px] h-auto rounded-[32px] object-cover"
+                  className="w-[260px] h-auto rounded-[32px] object-cover"
                 />
-                {/* Glossy overlay */}
                 <div className="phone-gloss" />
               </div>
             </div>
