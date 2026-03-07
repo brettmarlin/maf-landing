@@ -1,6 +1,7 @@
 import { FlameIcon, ArrowRightIcon, TrendingDownIcon, TargetIcon, ZapIcon, StarIcon, TrophyIcon, AwardIcon } from 'lucide-react';
 import { MockDashboard } from './MockDashboard';
 import { FloatingBadges } from './FloatingBadges';
+import { PhoneShowcase } from './PhoneShowcase';
 
 export function App() {
   return (
@@ -81,6 +82,9 @@ export function App() {
           </div>
         </div>
       </section>
+
+      {/* Phone Showcase */}
+      <PhoneShowcase />
 
       {/* Gamification / Badges Section */}
       <section className="relative px-6 py-24 md:py-32">
