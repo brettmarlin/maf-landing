@@ -44,8 +44,7 @@ export function App() {
             MAF works. You already know that.
           </h2>
           <p className="text-lg text-gray-400 leading-relaxed">
-            The problem isn't the method — it's the 3 months of running slow before you see proof. Most people quit at week 6. MAF Machine makes sure you don't.
-          </p>
+          Stay under your ceiling. Be patient. Trust the process. The method isn't complicated ,  it's the three months of invisible progress that kills people. Most quit at week six. Right when it's about to work.          </p>
         </div>
       </section>
 
@@ -59,16 +58,16 @@ export function App() {
             </div>
             <h3 className="text-xl font-bold mb-3">See What You Can't Feel</h3>
             <p className="text-gray-400 leading-relaxed text-sm">
-              Your aerobic engine is improving every run. Cardiac drift dropping. Efficiency climbing. Pace bending. MAF Machine shows you the progress your legs can't feel yet.
+            Cardiac drift dropping. Efficiency climbing. Pace bending downward at the same heart rate. Your aerobic engine is improving every run. MAF Machine shows you the evidence.
             </p>
           </div>
           <div className="glass-card rounded-2xl p-8">
             <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
               <TargetIcon className="w-6 h-6 text-orange-400" />
             </div>
-            <h3 className="text-xl font-bold mb-3">One Number That Matters</h3>
+            <h3 className="text-xl font-bold mb-3">One number. Every second.</h3>
             <p className="text-gray-400 leading-relaxed text-sm">
-              Your MAF ceiling. Stay under it. That's the whole game. We track every second of every run and show you exactly how well you played it.
+            Your MAF ceiling. We track every second of every run against it. No zones, no ranges, just a hard ceiling. Stay under it. That's the whole game.
             </p>
           </div>
           <div className="glass-card rounded-2xl p-8">
@@ -77,7 +76,7 @@ export function App() {
             </div>
             <h3 className="text-xl font-bold mb-3">The Streak Is the Point</h3>
             <p className="text-gray-400 leading-relaxed text-sm">
-              Consistency beats intensity. Every week you hit your target, your streak grows. Miss a week but still ran? Streak pauses, doesn't break. We reward showing up.
+              Consistency beats intensity. Every week you hit your target, your streak grows. Miss Hit your weekly target, your streak grows. Miss a week but still ran? Streak pauses, doesn't break. The game rewards what actually builds your aerobic base: showing up.
             </p>
           </div>
         </div>
@@ -93,14 +92,12 @@ export function App() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-black gradient-text mb-6">
-                Every mile is XP.
+                 Every run builds the fire inside you.
               </h2>
               <div className="space-y-5 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  MAF training is a long game. So we made it a <span className="text-white font-medium">literal game</span>. Earn XP for every run. Level up as your aerobic base grows. Unlock badges for streaks, perfect weeks, and breakthroughs.
-                </p>
-                <p>
-                  The dopamine hit you used to get from PRs? Now you get it from <span className="text-white font-medium">consistency</span>.
+                MAF training is a long game. So we made it a game. Earn progress for every run. Level up as your aerobic base grows. Unlock badges for streaks, discipline, and breakthroughs you didn't know you were making.
+                The dopamine hit you used to get from PRs? Now you get it from consistency.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -134,18 +131,18 @@ export function App() {
         <div className="glow-orb w-[500px] h-[500px] bg-pink-600 top-0 left-0" />
         <div className="relative z-10 max-w-2xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-black gradient-text-warm mb-8">
-            Running slow is a flex.
+          The boring work that builds the engine.
           </h2>
           <div className="text-gray-400 text-lg leading-relaxed space-y-4">
             <p>
-              You're going to get passed by grandmas. People will ask if you're okay. Your Strava followers will think you've lost it.
+            Maffetone coached Mark Allen to six Ironman world championships. The method has been quietly behind some of the greatest endurance careers in history. No highlight reel. No shortcuts. Months of disciplined, low-heart-rate running that rewires your entire aerobic system.
             </p>
             <p className="text-white font-semibold text-xl">Good.</p>
             <p>
-              While they're burning out on intervals and nursing shin splints, you're building an aerobic engine that'll carry you for decades. Every painfully slow mile is a deposit in a bank that compounds.
+            Most people can't do it, not because it's hard, but because it requires patience most runners don't have.
             </p>
             <p className="text-white font-medium">
-              Slow is smooth. Smooth is fast. And in 3 months, you'll be the one doing the passing.
+              You're here because you do.
             </p>
           </div>
         </div>
@@ -190,7 +187,7 @@ export function App() {
               "But I already track my runs on Strava."
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Strava shows you what happened. MAF Machine shows you what it <span className="text-white font-medium italic">means</span>. That 12:30 pace at 128 bpm? Three weeks ago that same effort was 13:15. You're faster at the same heart rate. That's aerobic progress — and Strava won't tell you that.
+              Strava shows you what happened. MAF Machine shows you what it <span className="text-white font-medium italic">means</span>. That 12:30 pace at 128 bpm? Three weeks ago that same effort was 13:15. You're faster at the same heart rate. That's aerobic progress ,  and Strava won't tell you that.
             </p>
           </div>
         </div>
