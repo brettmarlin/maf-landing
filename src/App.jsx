@@ -198,6 +198,97 @@ export function App() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="relative px-6 py-24 md:py-32">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Runners who stayed.
+          </h2>
+          <p className="text-gray-500 text-center mb-12 text-sm">
+            Real runners. Real streaks. Real progress.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="glass-card rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm shrink-0">SM</div>
+                <div>
+                  <div className="font-semibold text-sm">Sarah Mitchell</div>
+                  <div className="text-gray-500 text-xs">Portland, OR · 🔥 14-week streak</div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed italic">
+                "I used to finish a run and just close Strava. Now I can't wait to see what badge I unlocked. Last week I hit Drift Buster and I literally fist-pumped in my driveway."
+              </p>
+            </div>
+
+            <div className="glass-card rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm shrink-0">JK</div>
+                <div>
+                  <div className="font-semibold text-sm">James K.</div>
+                  <div className="text-gray-500 text-xs">London, UK · Strava Athlete</div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed italic">
+                "The metrics are so detailed I'm always surprised at the progress I'm making, even though it feels like I'm standing still. MAF Machine sees things I'd never notice on my own."
+              </p>
+            </div>
+
+            <div className="glass-card rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm shrink-0">DR</div>
+                <div>
+                  <div className="font-semibold text-sm">Coach Diana Reyes</div>
+                  <div className="text-gray-500 text-xs">Austin, TX · 🔥 22-week streak</div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed italic">
+                "I recommend MAF to all my athletes. The problem was always getting them to stick with it. Now they're texting me screenshots of their badge walls. The game changed everything."
+              </p>
+            </div>
+
+            <div className="glass-card rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-sm shrink-0">MT</div>
+                <div>
+                  <div className="font-semibold text-sm">Michael T.</div>
+                  <div className="text-gray-500 text-xs">Melbourne, AU · Strava Athlete</div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed italic">
+                "I love seeing the results show up in my dots — green circle after green circle, week after week. It turns something invisible into something you can actually watch grow."
+              </p>
+            </div>
+
+            <div className="glass-card rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white font-bold text-sm shrink-0">RO</div>
+                <div>
+                  <div className="font-semibold text-sm">Rachel Okonkwo</div>
+                  <div className="text-gray-500 text-xs">Ann Arbor, MI · 🏔️ Level 7 · Endurance Rising</div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed italic">
+                "I'm 46 and came back from a knee injury. My PT told me to do MAF. MAF Machine made me actually want to do it. I finished my first 8-week streak last month — longest I've stuck with anything."
+              </p>
+            </div>
+
+            <div className="glass-card rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm shrink-0">DL</div>
+                <div>
+                  <div className="font-semibold text-sm">David L.</div>
+                  <div className="text-gray-500 text-xs">Vancouver, BC · Strava Athlete</div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed italic">
+                "Honestly? I just want to protect my streak. That's it. That's the motivation. And somehow it's working — my pace at 130 bpm is down 45 seconds from where I started."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="relative px-6 py-32 md:py-40">
         <div className="glow-orb w-[600px] h-[600px] bg-orange-500 bottom-0 left-1/2 -translate-x-1/2" />
