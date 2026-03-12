@@ -300,7 +300,7 @@ export function App() {
             Connect Strava. Set your ceiling. Your first badge is waiting.
           </p>
           <a
-            href="#"
+            href="https://mafmachine.com/api/auth/strava"
             className="inline-flex items-center gap-2 bg-[#FC4C02] hover:bg-[#e04400] text-white font-semibold text-lg px-8 py-4 rounded-full transition-colors mb-6"
           >
             Connect with Strava
