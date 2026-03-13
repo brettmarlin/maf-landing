@@ -198,6 +198,22 @@ export function App() {
         </div>
       </section>
 
+      {/* Video Overview */}
+      <section className="relative px-6 py-24 md:py-32">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">See it in action</h2>
+          <p className="text-gray-500 text-sm mb-8">A quick walkthrough of how MAF Machine works.</p>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              src="https://www.loom.com/embed/bbf92f60e5fe44648c9f7ad8fc9a1ebf"
+              frameBorder="0"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full rounded-2xl"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="relative px-6 py-32 md:py-40">
         <div className="glow-orb w-[600px] h-[600px] bg-orange-500 bottom-0 left-1/2 -translate-x-1/2" />
